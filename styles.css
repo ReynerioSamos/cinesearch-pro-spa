@@ -1,0 +1,231 @@
+/* styles.css */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: hsl(220, 20%, 6%);
+    --surface: hsl(220, 18%, 10%);
+    --surface2: hsl(220, 16%, 14%);
+    --border: hsl(220, 14%, 20%);
+    --text: hsl(220, 15%, 90%);
+    --accent: hsl(220, 100%, 60%);
+    --muted: hsl(220, 15%, 70%);
+}
+
+html,
+body {
+    min-height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+}
+
+/* Layout */
+.app {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr 380px;
+    grid-template-areas:
+        "header header"
+        "detail sidebar"
+        "footer footer";
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    grid-area: header;
+    padding: 12px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    justify-content: space-between;
+}
+
+.search-wrap {
+    position: relative;
+    width: 380px;
+    min-width: 380px;
+    max-width: 380px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text);
+    font-size: 14px;
+    pointer-events: none;
+}
+
+#search-input {
+    width: 100%;
+    padding: 8px 12px 8px 32px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--surface2);
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+.search-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent);
+}
+
+#search-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent);
+}
+
+#search-input::placeholder {
+    color: var(--muted);
+    opacity: 0.7;
+}
+
+/* Spinner when fetching results from API*/
+.spinner {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    border-top-color: var(--accent);
+    animation: spin 0.6s linear infinite;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+[data-loading="true"] .spinner {
+    opacity: 1;
+}
+
+@keyframes spin {
+    from {
+        transform: translateY(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+.status-bar {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+    flex: 1;
+}
+
+/* Sidebar */
+.sidebar {
+    grid-area: sidebar;
+    border-left: 1px solid var(--border);
+    border-right: none;
+    overflow-y: auto;
+    background: var(--bg);
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+}
+
+.results-header {
+    padding: 20px 24px 12px;
+    font-size: 14px;
+    font-family: "Inter", monospace;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Template-driven result items */
+
+/* Detail Panel */
+/* A lot of the rendering information from API is done here
+    Loads:
+        poster
+        backdrop
+        title
+        tagline
+        badges (year + genres)
+        overview
+        cast grid
+        trailer btn
+*/
+
+/* Keyboard Hint */
+.keyboard-hint {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.keys {
+    display: flex;
+    gap: 4px;
+}
+
+kbd {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-bottom-width: 2px;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-family: inherit;
+    color: var(--text);
+}
+
+/* Footer */
+footer {
+    grid-area: footer;
+    background-color: var(--surface);
+    color: var(--muted);
+    text-align: center;
+    padding: 16px 24px;
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    line-height: 1.6;
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

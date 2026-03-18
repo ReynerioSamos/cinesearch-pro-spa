@@ -1,0 +1,52 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./styles.css" />
+        <title>CineSearch Pro</title>
+    </head>
+    <body>
+        <div class="app">
+            <header>
+                <h1>CineSearch Pro</h1>
+                <!-- Search bar -->
+                <div class="search-wrap" data-loading="false">
+                    <span class="search-icon">⌕</span>
+                    <input
+                        id="search-input"
+                        type="text"
+                        placeholder="Search for a movie..."
+                        autocomplete="off"
+                    />
+                </div>
+                <div class="status-bar" id="status-bar"></div>
+            </header>
+
+            <aside class="sidebar">
+                <div class="keyboard-hint">
+                    <span>Keyboard Shortcuts</span>
+                    <div class="keys">
+                        <kbd>↑</kbd>
+                        <kbd>↓</kbd>
+                        <kbd>Enter</kbd>
+                    </div>
+                </div>
+            </aside>
+
+            <main></main>
+            <footer>
+                <p>Reynerio Samos - CMPS 2212 Test 1 - Demo 1</p>
+                <p>
+                    I do not own any of the rights to the movies displayed on
+                    this site nor the information provided by the API. API data
+                    is sourced from
+                    <a href="https://www.themoviedb.org/">The Movie Database</a
+                    >.
+                </p>
+            </footer>
+            <script type="module" src="./app.js"></script>
+        </div>
+    </body>
+</html>
