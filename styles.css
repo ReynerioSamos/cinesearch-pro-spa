@@ -282,6 +282,21 @@ header {
     background-color: var(--bg);
 }
 
+.detail-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 14px;
+    opacity: 0.5;
+}
+
+.detail-empty span {
+    font-size: 48px;
+}
 .detail-top {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -379,6 +394,15 @@ header {
     color: var(--muted);
 }
 
+.overview {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text);
+}
 /* Movie Trailers*/
 .trailer {
     width: 100%;
