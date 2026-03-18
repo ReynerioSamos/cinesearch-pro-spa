@@ -20,10 +20,11 @@
                         placeholder="Search for a movie..."
                         autocomplete="off"
                     />
+                    <div class="spinner"></div>
                 </div>
                 <div class="status-bar" id="status-bar"></div>
             </header>
-
+            <main class="detail"></main>
             <aside class="sidebar">
                 <div class="keyboard-hint">
                     <span>Keyboard Shortcuts</span>
@@ -33,9 +34,13 @@
                         <kbd>Enter</kbd>
                     </div>
                 </div>
-            </aside>
 
-            <main></main>
+                <div class="results-header" id="result-header" hidden>
+                    <span id="results-count"></span>
+                </div>
+
+                <ul id="results-list"></ul>
+            </aside>
             <footer>
                 <p>Reynerio Samos - CMPS 2212 Test 1 - Demo 1</p>
                 <p>
